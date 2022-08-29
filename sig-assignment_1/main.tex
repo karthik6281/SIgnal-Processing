@@ -738,4 +738,153 @@ wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/code
 \end{enumerate}
 %
 %%
+\section{DFT and FFT}
+\begin{enumerate}[label=\thesection.\arabic*]
+	\item Compute
+	\begin{equation}
+		X(k) \define \sum _{n=0}^{N-1}x(n) e^{-\j2\pi kn/N} \quad k = 0,1,\dots, N-1
+	\end{equation}
+	and $H(k)$ using $h(n)$
+	
+	\solution The python code can be obtained from 
+	\begin{lstlisting}
+		wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/6_1.py
+	\end{lstlisting}
+	
+	Execute the following commands
+	\begin{lstlisting}
+		python3 6_1.py
+	\end{lstlisting}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/6_1.png}
+		\caption{Plots of the real parts of the discrete Fourier transforms of $x(n)$ and $h(n)$}
+		\label{fig-6.1}	
+	\end{figure}
+	
+	\item Compute 
+	\begin{equation}
+		Y(k) = X(k)H(k)
+	\end{equation}
+	
+	\solution The python code can be obtained from 
+	\begin{lstlisting}
+		wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/6_2.py
+	\end{lstlisting}
+	
+	Execute the following commands
+	\begin{lstlisting}
+		python3 6_2.py
+	\end{lstlisting}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/6_2.png}
+		\caption{Plot of $Y(k)$}
+		\label{fig-6.2}	
+	\end{figure}
+	
+	\item Compute
+	\begin{equation}
+		y\brak{n}={\frac {1}{N}}\sum _{k=0}^{N-1}Y\brak{k}e^{\j 2\pi kn/N} \quad n = 0,1,\dots, N-1
+	\end{equation}
+	
+	\solution The python code can be obtained from 
+	\begin{lstlisting}
+		wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/6_3.py
+	\end{lstlisting}
+	
+	Execute the following commands
+	\begin{lstlisting}
+		python3 6_3.py
+	\end{lstlisting}
+	
+	\item Repeat the previous exercise by computing $X(k), H(k)$ and $y(n)$ through FFT and 
+	IFFT.
+	
+	\solution The python code can be obtained from 
+	\begin{lstlisting}
+	wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/6_4.py
+	\end{lstlisting}
+	
+	Execute the following commands
+	\begin{lstlisting}
+		python3 6_4.py
+	\end{lstlisting}
+\begin{figure}[!ht]
+	\centering
+     \begin{center}
+     	\includegraphics[width=\columnwidth]{./figs/3_2.png}
+     \end{center}
+    \end{figure}
+   	\begin{figure}[!ht]
+   	\centering
+   	\includegraphics[width=\columnwidth]{./figs/6_3.png}
+   	\caption{Plot of the inverse discrete Fourier transform of $Y(k)$}
+   	\label{fig-6.3}	
+   \end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/6_4.png}
+		\caption{Plot of $y(n)$ by fast Fourier transform}
+		\label{fig-6.4}	
+	\end{figure}
+	
+	\item Wherever possible, express all the above equations as matrix equations.\\
+	\solution
+	We use the DFT Matrix, where $\omega = e^{-\frac{j2k\pi}{N}}$, which is given by
+	\begin{align}
+		\mtx{W} = 
+		\begin{pmatrix}
+			\omega^0 & \omega^0 & \ldots & \omega^0 \\
+			\omega^0 & \omega^1 & \ldots & \omega^{N - 1} \\
+			\vdots & \vdots & \ddots & \vdots \\
+			\omega^0 & \omega^{N - 1} & \ldots & \omega^{(N -1)(N - 1)}
+		\end{pmatrix}
+	\end{align}
+	i.e. $W_{jk} = \omega^{jk}$, $0 \leq j, k < N$. Hence, we can write any DFT equation as
+	\begin{align}
+		\mtx{X} = \mtx{W}\mtx{x} = \mtx{x}\mtx{W}
+	\end{align}
+	\noindent where
+	\begin{align}
+		\mtx{x} = 
+		\begin{pmatrix}
+			x(0) \\ x(1) \\ \vdots \\ x(n - 1)
+		\end{pmatrix}
+	\end{align}
+
+  The inverse Fourier Transform is given by
+	\begin{align}
+		\mtx{x} = \mathcal{F}^{-1}\brak{\mtx{X}} = \mtx{W}^{-1}\mtx{X} &= \frac{1}{N}\mtx{W^{H}}\mtx{X} = \frac{1}{N}\mtx{X}\mtx{W^{H}} \\ 
+		\implies \mtx{W}^{-1} &= \frac{1}{N}\mtx{W^{H}}
+	\end{align}
+	\noindent where $H$ denotes hermitian operator. We can compute $6.2$ using 
+	\begin{align}
+		\mtx{Y} = \mtx{H}\cdot\mtx{X} = \brak{\mtx{W}\mtx{h}}\cdot\brak{\mtx{W}\mtx{x}}
+	\end{align}
+
+ \item Verify the above equations by generating the DFT matrix in Python.
+ 
+ \solution The python code can be obtained from 
+ \begin{lstlisting}
+ 	wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/6_6.py
+ \end{lstlisting}
+ 
+ Execute the  following commands
+ \begin{lstlisting}
+ 	python3 6_6.py
+ \end{lstlisting}
+ 
+ \begin{figure}[!ht]
+ 	\centering
+ 	\includegraphics[width=0.8\columnwidth]{./figs/6_6.png}
+ 	%\caption{Plot of $y(n)$ by DFT matrix}
+ 	\label{fig-6.5}	
+ \end{figure}
+ 
+\end{enumerate}
+
 \end{document}
