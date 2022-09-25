@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  25 SEP 2022 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  25 SEP 2022 15:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,11 +598,7 @@ File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count319
 \l__pdf_internal_box=\box63
 )
-(./main.aux
-
-LaTeX Warning: Label `eq:dft-mat-def' multiply defined.
-
-)
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 73.
@@ -1015,24 +1011,46 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-[12] (./main.aux)
+Overfull \hbox (17.61452pt too wide) detected at line 1407
+[]
+ []
+
+
+Overfull \hbox (32.04646pt too wide) detected at line 1416
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+LaTeX Warning: Reference `eq:final' on page 12 undefined on input line 1428.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14
+
+] (./main.aux)
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EDFC8E4B8727EDBA1BB28508A87337F9;882.
  ) 
 Here is how much of TeX's memory you used:
- 16550 strings out of 480247
- 258197 string characters out of 5896152
+ 16586 strings out of 480247
+ 258624 string characters out of 5896152
  976883 words of memory out of 5000000
- 33933 multiletter control sequences out of 15000+600000
- 533304 words of font info for 154 fonts, out of 8000000 for 9000
+ 33937 multiletter control sequences out of 15000+600000
+ 534654 words of font info for 156 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
- 60i,17n,63p,274b,1948s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,18n,63p,421b,1948s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxb.pfb></usr/share/texlive/texmf-dist/fonts/type
@@ -1046,10 +1064,10 @@ public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 312271 bytes).
+Output written on main.pdf (14 pages, 319187 bytes).
 PDF statistics:
- 619 PDF objects out of 1000 (max. 8388607)
- 517 compressed objects within 6 object streams
- 299 named destinations out of 1000 (max. 500000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 559 compressed objects within 6 object streams
+ 329 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

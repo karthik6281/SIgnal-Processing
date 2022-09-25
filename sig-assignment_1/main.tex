@@ -1397,13 +1397,138 @@ $\therefore$ $\vec{X} = \vec{F}_N \vec{x}$
 		\vec{x} = \myvec{1\\2\\3\\4\\2\\1}
 		\label{eq:equation1}
 	\end{align}
-	compute the DFT  
+	compte the DFT  
 	using 
 	\eqref{eq:dft-mat-def}
+	\solution \begin{align}
+		\vec{F}_6&=\begin{bmatrix}
+			1&1&1&1&1&1\\1&e^{-j \pi/3 }&e^{-j 2 \pi/3 }&e^{-j \pi }&e^{-j 4 \pi/3 }&e^{-j 5 \pi/3 }\\1&e^{-j 2 \pi/3 }&e^{-j 4 \pi/3 }&e^{-j 2 \pi }&e^{-j 8\pi/3 }&e^{-j 10 \pi/3 }\\1&e^{-j \pi }&e^{-j 2 \pi }&e^{-j 3 \pi }&e^{-j 4 \pi }&e^{-j 5 \pi }\\1&e^{-j 4 \pi/3 }&e^{-j 8 \pi/3 }&e^{-j 4 \pi }&e^{-j 16 \pi/3 }&e^{-j 20 \pi/3 }\\1&e^{-j 5 \pi/3 }&e^{-j 10 \pi/3 }&e^{-j 5 \pi }&e^{-j 20 \pi/3 }&e^{-j 25 \pi/3 }
+		\end{bmatrix}
+	\end{align}
+	Using \eqref{eq:equation1},
+	\begin{align}
+		\vec{X}&=\vec{F}_6\vec{x}
+	\end{align}
+	\begin{align}
+		\vec{X}=\begin{bmatrix}
+			1&1&1&1&1&1\\1&e^{-j \pi/3 }&e^{-j 2 \pi/3 }&e^{-j \pi }&e^{-j 4 \pi/3 }&e^{-j 5 \pi/3 }\\1&e^{-j 2 \pi/3 }&e^{-j 4 \pi/3 }&e^{-j 2 \pi }&e^{-j 8\pi/3 }&e^{-j 10 \pi/3 }\\1&e^{-j \pi }&e^{-j 2 \pi }&e^{-j 3 \pi }&e^{-j 4 \pi }&e^{-j 5 \pi }\\1&e^{-j 4 \pi/3 }&e^{-j 8 \pi/3 }&e^{-j 4 \pi }&e^{-j 16 \pi/3 }&e^{-j 20 \pi/3 }\\1&e^{-j 5 \pi/3 }&e^{-j 10 \pi/3 }&e^{-j 5 \pi }&e^{-j 20 \pi/3 }&e^{-j 25 \pi/3 }
+		\end{bmatrix} \myvec{1\\2\\3\\4\\2\\1}
+	\end{align}
+	\begin{align}
+		=\begin{bmatrix}
+			13\\-3.12-6.53j\\1j\\1.12-0.53j\\-1j\\1.12+0.53j
+		\end{bmatrix}
+	\end{align}
 	\item Repeat the above exercise using the FFT
-	after zero padding $\vec{x}$.
-	%	    \eqref{eq:fft-mat-def}
-	\item Write a C program to compute the 8-point FFT. 
+	after zero padding $\vec{x}$.\\
+	\solution $\vec{x}$ after padding is 
+	\begin{align}
+		\myvec{1\\2\\3\\4\\2\\1\\0\\0}
+	\end{align}
+	Using \eqref{eq:final},
+	\begin{align}
+		\vec{F}_{8}=
+		\begin{bmatrix}
+			\vec{I}_{4} & \vec{D}_{4} \\
+			\vec{I}_{4} & -\vec{D}_{4}
+		\end{bmatrix}
+		\begin{bmatrix}
+			\vec{F}_{4} & 0 \\
+			0 & \vec{F}_{4}
+		\end{bmatrix}
+		\vec{P}_{8}\\
+		\vec{F}_{4}=
+		\begin{bmatrix}
+			\vec{I}_{2} & \vec{D}_{2} \\
+			\vec{I}_{2} & -\vec{D}_{2}
+		\end{bmatrix}
+		\begin{bmatrix}
+			\vec{F}_{2} & 0 \\
+			0 & \vec{F}_{2}
+		\end{bmatrix}
+		\vec{P}_{4}\\
+		\vec{F}_{2}=
+		\begin{bmatrix}
+			\vec{I}_{1} & \vec{D}_{1} \\
+			\vec{I}_{1} & -\vec{D}_{1}
+		\end{bmatrix}
+		\begin{bmatrix}
+			\vec{F}_{1} & 0 \\
+			0 & \vec{F}_{1}
+		\end{bmatrix}
+		\vec{P}_{2}\\
+		\vec{F_1}=\sbrak{1}
+	\end{align}
+	Calculating $\vec{F_2}$,
+	\begin{align}
+		\vec{F_2}&=\begin{bmatrix}
+			\vec{F}_{1} & \vec{D_1F_1} \\
+			\vec{F}_{1} & -\vec{D_1F_1}
+		\end{bmatrix}\vec{P_2}\\
+		&=\begin{bmatrix}1&1\\1&-1\end{bmatrix}
+	\end{align}
+	Calculating $\vec{F_4}$,
+	\begin{align}
+		\vec{D}_{2}=diag(1,W_4)
+		=\begin{bmatrix}
+			1&0\\0&-j
+		\end{bmatrix}\\
+		\vec{D_2F_2}=\begin{bmatrix}
+			1&0\\0&-j
+		\end{bmatrix}\begin{bmatrix}
+			1&1\\1&-1
+		\end{bmatrix}\\
+		=\begin{bmatrix}
+			1&1\\-j&j
+		\end{bmatrix}\\
+		\vec{F_4}=\begin{bmatrix}
+			\vec{F}_{2} & \vec{D_2F_2} \\
+			\vec{F}_{2} & -\vec{D_2F_2}
+		\end{bmatrix}\vec{P_4}\\
+		\vec{F_4}=\begin{bmatrix}
+			1&0&1&1\\0&1&-j&j\\1&0&-1&-1\\0&1&j&-j
+		\end{bmatrix}\begin{bmatrix}
+			1&0&0&0\\0&0&1&0\\0&1&0&0\\0&0&0&1
+		\end{bmatrix}\\
+		=\begin{bmatrix}
+			1&1&0&1\\0&-j&1&j\\1&-1&0&j\\0&j&1&-j
+		\end{bmatrix}
+	\end{align}
+	Calculating $\vec{F_8}$,
+	\begin{align}
+		\vec{D_4}=diag\brak{1,W_8,W_8^2,W_8^3}\\
+		=\begin{bmatrix}
+			1&0&0&0\\0&\frac{1-j}{\sqrt{2}}&0&0\\0&0&-1&0\\0&0&0&\frac{-1-j}{\sqrt{2}}
+		\end{bmatrix}\\
+		\vec{D_4F_4}=\begin{bmatrix}
+			1&0&0&0\\0&\frac{1-j}{\sqrt{2}}&0&0\\0&0&-1&0\\0&0&0&\frac{-1-j}{\sqrt{2}}
+		\end{bmatrix}\begin{bmatrix}
+			1&1&0&1\\0&-j&1&j\\1&-1&0&j\\0&j&1&-j
+		\end{bmatrix}\\
+		=\begin{bmatrix}
+			1&1&0&1\\0&\frac{-1-j}{\sqrt{2}}&\frac{1-j}{\sqrt{2}}&\frac{1+j}{\sqrt{2}}\\-1&1&0&-j\\0&\frac{1-j}{\sqrt{2}}&\frac{-1-j}{\sqrt{2}}&\frac{-1+j}{\sqrt{2}}
+		\end{bmatrix}
+	\end{align}
+	$F_8=\vec{ABP_8}$ where
+	\begin{align}
+		\vec{A}=\begin{bmatrix}
+			1&0&0&0&1&0&0&0\\0&1&0&0&0&\frac{-1-j}{\sqrt{2}}&\frac{1-j}{\sqrt{2}}&\frac{1+j}{\sqrt{2}}\\0&0&1&0&-1&1&0&-j\\0&0&0&1&0&\frac{1-j}{\sqrt{2}}&\frac{-1-j}{\sqrt{2}}&\frac{-1+j}{\sqrt{2}}\\1&0&0&0&-1&0&0&0\\0&1&0&0&0&\frac{1+j}{\sqrt{2}}&\frac{-1+j}{\sqrt{2}}&\frac{-1-j}{\sqrt{2}}\\0&0&1&0&1&-1&0&j\\0&0&0&1&0&\frac{-1+j}{\sqrt{2}}&\frac{1+j}{\sqrt{2}}&\frac{1-j}{\sqrt{2}}
+		\end{bmatrix}\\ \vec{B}=\begin{bmatrix}
+			1&1&0&1&0&0&0&0\\0&-j&1&j&0&0&0&0\\1&-1&0&j&0&0&0&0\\0&j&1&-j&0&0&0&0\\0&0&0&0&-1&-1&0&-1\\0&0&0&0&0&j&-1&j\\0&0&0&0&-1&1&0&-j\\0&0&0&0&0&-j&-1&j
+		\end{bmatrix}\\
+		\vec{F_8}=\
+	\end{align}
+	And $\vec{P_8}$ is a permutation matrix.
+	\begin{align}
+		\vec{X}=\begin{bmatrix}
+			13\\-3.12-6.53j\\1j\\1.12-0.53j\\-1\\1.12+0.53j\\-1j\\-3.12+6.53j
+		\end{bmatrix}
+	\end{align}
+	\item Write a C program to compute the 8-point FFT.
+	\solution \begin{lstlisting} 
+		wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/7_13.c
+		gcc 7.9.c -lm
+	\end{lstlisting}
 \end{enumerate}
 \section{Exercises}
 Answer the following questions by looking at the python code in Problem \ref{prob:output}.
