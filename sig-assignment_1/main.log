@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  25 SEP 2022 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  25 SEP 2022 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1034,9 +1034,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
+<./figs/timecomparision.png, id=522, 462.528pt x 346.896pt>
+File: ./figs/timecomparision.png Graphic file (type png)
+<use ./figs/timecomparision.png>
+Package pdftex.def Info: ./figs/timecomparision.png  used on input line 1566.
+(pdftex.def)             Requested size: 252.0pt x 189.00427pt.
+
 [14
 
-] (./main.aux)
+ <./figs/timecomparision.png>] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1044,10 +1050,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: EDFC8E4B8727EDBA1BB28508A87337F9;882.
  ) 
 Here is how much of TeX's memory you used:
- 16586 strings out of 480247
- 258624 string characters out of 5896152
+ 16594 strings out of 480247
+ 258844 string characters out of 5896152
  976883 words of memory out of 5000000
- 33937 multiletter control sequences out of 15000+600000
+ 33944 multiletter control sequences out of 15000+600000
  534654 words of font info for 156 fonts, out of 8000000 for 9000
  17 hyphenation exceptions out of 8191
  60i,18n,63p,421b,1948s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1064,10 +1070,10 @@ public/txfonts/txsyc.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (14 pages, 319206 bytes).
+Output written on main.pdf (14 pages, 333898 bytes).
 PDF statistics:
- 663 PDF objects out of 1000 (max. 8388607)
+ 665 PDF objects out of 1000 (max. 8388607)
  559 compressed objects within 6 object streams
  329 named destinations out of 1000 (max. 500000)
- 125 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
