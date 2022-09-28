@@ -1,20 +1,23 @@
+
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
+from scipy import optimize
 
-convolutiontime=np.loadtxt('convolutiontime.dat')
-directdft=np.loadtxt('dfttime.dat')+np.loadtxt('idfttime.dat')
-fftct=np.loadtxt('totalffttimect.dat')
-fftmat=np.loadtxt('fftmat.dat')
-data=[convolutiontime,directdft,fftct,fftmat]
-for i in range(0,len(data)):
-    data[i]*=1e6
+fft_times = np.loadtxt('fft_times.dat', dtype=float)
+conv_times = np.loadtxt('conv_times.dat', dtype=float)
 
-methods = ['Convolution','Direct DFT and IDFT','FFT through Cooley-Tukey & IFFT through Conjugate','FFt through Matrix Decomposition']
-df=pd.DataFrame(data,methods)
-time = [convolutiontime,directdft,fftct,fftmat]
-print(df)
-plt.bar(df.index,df[0])
-plt.ylabel('Time in $\mu$s')
-plt.xlabel('Method Employed')
+N = np.logspace(1, len(fft_times), num=len(fft_times), base=2)
+
+fft_fit = optimize.curve_fit(lambda x,a : a*x*np.log(x), N, fft_times)[0]
+conv_fit = optimize.curve_fit(lambda x,a : a*x*x, N, conv_times)[0]
+
+plt.plot(N, fft_fit * N * np.log(N), label='$O(n \log n)$')
+plt.plot(N, conv_fit * N * N, label='$O(n^2)$')
+plt.plot(N, fft_times, 'o', label='FFT/IFFT')
+plt.plot(N, conv_times, 'o', label='Convolution')
+plt.xlabel('Size of input')
+plt.ylabel('Running time')
+plt.title('Comparison between running times of FFT/IFFT and Convolution')
+plt.legend()
+plt.grid()
 plt.show()
