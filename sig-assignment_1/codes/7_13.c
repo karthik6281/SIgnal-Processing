@@ -70,4 +70,5 @@ int main(){
         // printf("%lf %lf \n",creal(X[i]),cimag(X[i]));
     }
 
-}
+
+

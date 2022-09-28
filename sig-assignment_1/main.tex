@@ -480,18 +480,18 @@ wget https://github.com/karthik6281/Signal-Processing/blob/main/sig-pro/codes/3_
 		|H(e^{jw})|&=4 |\cos(\omega)| \frac{|e^{jw}|}{|2+e^{jw}|}\\
 		&=\frac{|4\cos(\omega)|}{5+4\cos(\omega)}
 	\end{align}
-	 $\abs{H\brak{e^{\j\omega}}}$ is periodic with period $\pi$.( The LCM of the period of $|\cos(\omega)|$ and $5+4\cos(\omega)$ is $2\pi$)
-	The graph of $\abs{H\brak{e^{\j\omega}}}$ is symmetric with respect to y-axis. It is continuous over $\omega$. The following code plots Fig. \ref{fig:4.5}.
+	 $\abs{H\brak{e^{j\omega}}}$ is periodic with period $\pi$.( The LCM of the period of $|\cos(\omega)|$ and $5+4\cos(\omega)$ is $2\pi$)
+	The graph of $\abs{H\brak{e^{j\omega}}}$ is symmetric with respect to y-axis. It is continuous over $\omega$. The following code plots Fig. \ref{fig:4.5}.
 	\begin{lstlisting}
 		wget https://github.com/karthik6281/Signal-Processing/blob/main/Assignment1/codes/4_6.py
 	\end{lstlisting}
 	\begin{figure}[!ht]
 		\centering
 		\includegraphics[width=\columnwidth]{./figs/4_6.png}
-		\caption{$\abs{H\brak{e^{\j\omega}}}$}
+		\caption{$\abs{H\brak{e^{j\omega}}}$}
 		\label{fig:4.5}
 	\end{figure}
-	\item Express $h(n)$ in terms of $H\brak{e^{\j \omega}}$.
+	\item Express $h(n)$ in terms of $H\brak{e^{j\omega}}$.
 	
 	\solution 
 	\begin{align}
@@ -901,7 +901,9 @@ wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/code
 		&= e^{-j2\pi/\brak{N/2}} \\
 		&= W_{N/2}\label{result}
 	\end{align}
-	Hence proved.\\
+
+	Hence proved.
+	
 	\item Show that 
 	\begin{equation}
 		\vec{F}_{4}=
@@ -1537,4 +1539,134 @@ gcc 7_13.c -lm
 \end{figure}
 \end{enumerate}
 
+\section{Exercises}
+Answer the following questions by looking at the python code in Problem \ref{prob:output}
+
+\begin{enumerate}[label=\thesection.\arabic*]
+	\item The command
+	\begin{lstlisting}
+		output_signal = signal.lfilter(b, a, input_signal)
+	\end{lstlisting}
+	in Problem \ref{prob:output} is executed through the following difference equation
+	\begin{equation}
+		\label{eq:iir_filter_gen}
+		\sum _{m=0}^{M}a\brak{m}y\brak{n-m}=\sum _{k=0}^{N}b\brak{k}x\brak{n-k}
+	\end{equation}
+	where the input signal is $x(n)$ and the output signal is $y(n)$ with initial values all 0. Replace \textbf{signal.filtfilt} with your own routine and verify.
+	
+	\solution On taking the $Z$-transform on both sides of the difference equation
+	\begin{align}
+		\sum _{m=0}^{M}a\brak{m} z^{-m} Y(z) &= \sum _{k=0}^{N}b\brak{k} z^{-k} X(z) \\
+		\implies H(z) = \frac{Y(z)}{X(z)} &= \frac{\sum _{k=0}^{N}b\brak{k} z^{-k}}{\sum _{m=0}^{M}a\brak{m} z^{-m}}
+	\end{align}
+	
+	For obtaining the discrete Fourier transform, put $z = \j \frac{2\pi i}{I}$ where $I$ is the length of the input signal and $i = 0, 1, \ldots, I-1$
+	
+	Download the following Python code that does the above
+	\begin{lstlisting}
+wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/8_1.c
+	\end{lstlisting}
+	
+	Run the code by executing
+	\begin{lstlisting}
+		python3 8_1.py
+	\end{lstlisting}
+	
+	\item Repeat all the exercises in the previous sections for the above $a$ and $b$
+	
+	\solution The polynomial coefficients obtained are
+	\begin{align}
+		\vec{a} = \myvec{1.000 \\ -2.519 \\ 2.561 \\ -1.206 \\ 0.220} \qquad
+		\vec{b} = \myvec{0.003 \\ 0.014 \\ 0.021 \\ 0.014 \\ 0.003}
+	\end{align}
+	
+	The difference equation is then given by
+	\begin{equation}
+		\vec{a}^\top \vec{y} = \vec{b}^\top \vec{x} 
+	\end{equation}
+	
+	where
+	\begin{align}
+		\vec{y} = \myvec{y(n) \\ y(n-1) \\ y(n-2) \\ y(n-3) \\ y(n-4)} \qquad
+		\vec{x} = \myvec{x(n) \\ x(n-1) \\ x(n-2) \\ x(n-3) \\ x(n-4)}
+	\end{align}
+	
+	We have
+	\begin{equation}
+		H(z) = \frac{Y(z)}{X(z)} = \frac{\sum _{k=0}^{N}b\brak{k} z^{-k}}{\sum _{m=0}^{M}a\brak{m} z^{-m}}
+	\end{equation}
+	
+	By using partial fraction decomposition, we can write this as
+	\begin{equation}
+		H(z) = \sum_i \frac{r(i)}{1-p(i)z^{-1}} + \sum_j k(j)z^{-j}
+	\end{equation}
+	
+	On taking the inverse $Z$-transform on both sides by using \eqref{eq:anun}
+	\begin{align}
+		H(z) &\ztrans h(n) \\
+		\frac{1}{1-p(i)z^{-1}} &\ztrans \brak{p(i)}^nu(n) \\
+		z^{-j} &\ztrans \delta(n-j) 
+	\end{align}
+	
+	Thus
+	\begin{align}
+		h(n) = \sum_i r(i)\brak{p(i)}^nu(n) + \sum_j k(j)\delta(n-j)
+	\end{align}
+	
+Download the following Python code
+	\begin{lstlisting}
+wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/8_2.py
+	\end{lstlisting}
+	
+	Run the code by executing
+	\begin{lstlisting}
+		python3 8_2.py
+	\end{lstlisting}
+	
+	The above code outputs the values of $r(i), p(i), k(i)$
+	\begin{multline}
+		h(n) = 
+		\Re\brak{(0.24 - 0.71\j)(0.56 + 0.14\j)^n} u(n) \\
+		+ \Re\brak{(0.24 + 0.71\j)(0.56 - 0.14\j)^n} u(n) \\
+		+ 0.016\delta(n)
+	\end{multline}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/8_2_1.png}
+		\caption{Plot of $y(n)$}
+		\label{fig-8.2.1}	
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/8_2_2.png}
+		\caption{Plot of $\abs{H(e^{j\omega})}$}
+		\label{fig-8.2.2}	
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/8_2_3.png}
+		\caption{Plot of $h(n)$}
+		\label{fig-8.2.3}	
+	\end{figure}
+	
+	\item What is the sampling frequency of the input signal?
+	
+	\solution
+	Sampling frequency(fs)=44.1kHZ.
+	\item
+	What is type, order and  cutoff-frequency of the above butterworth filter
+	
+	\solution
+	The given butterworth filter is low pass with order=4 and cutoff-frequency=4kHz.
+	%
+	\item
+	Modifying the code with different input parameters and to get the best possible output.
+	%
+	\solution 
+	Order: 10
+	Cutoff frequency: 3000 Hz
+\end{enumerate}
 \end{document}
