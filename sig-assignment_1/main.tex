@@ -1528,37 +1528,13 @@ $\therefore$ $\vec{X} = \vec{F}_N \vec{x}$
 wget https://github.com/karthik6281/Signal-Processing/tree/main/Assignment1/codes/7_13.c
 gcc 7_13.c -lm
 	\end{lstlisting}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\columnwidth]{./figs/7_14.png}
+	\caption{Plot of the running times of FFT/IFFT and convolution}
+	\label{fig-7_14}	
+\end{figure}
 \end{enumerate}
-\section{Exercises}
-Answer the following questions by looking at the python code in Problem \ref{prob:output}.
-\begin{enumerate}[label=\thesection.\arabic*]
-	\item
-	The command
-	\begin{lstlisting}
-		output_signal = signal.lfilter(b, a, input_signal)
-	\end{lstlisting}
-	in Problem \ref{prob:output} is executed through the following difference equation
-	\begin{equation}
-		\label{eq:iir_filter_gen}
-		\sum _{m=0}^{M}a\brak{m}y\brak{n-m}=\sum _{k=0}^{N}b\brak{k}x\brak{n-k}
-	\end{equation}
-	%
-	where the input signal is $x(n)$ and the output signal is $y(n)$ with initial values all 0. Replace
-	\textbf{signal.filtfilt} with your own routine and verify.
-	%
-	\item Repeat all the exercises in the previous sections for the above $a$ and $b$.
-	\item What is the sampling frequency of the input signal?
-	\\
-	\solution
-	Sampling frequency(fs)=44.1kHZ.
-	\item
-	What is type, order and  cutoff-frequency of the above butterworth filter
-	\\
-	\solution
-	The given butterworth filter is low pass with order=2 and cutoff-frequency=4kHz.
-	%
-	\item
-	Modifying the code with different input parameters and to get the best possible output.
-	%
-\end{enumerate}
+
 \end{document}
