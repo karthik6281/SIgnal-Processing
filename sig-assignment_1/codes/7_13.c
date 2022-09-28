@@ -62,13 +62,12 @@ int main(){
     complex b[8] ;
     for(int i = 0 ;i < 8 ; i++){
     b[i] = fft(i,a,8,8) ;
-    //  printf("%lf %lf\n",creal(b[i]),cimag(b[i]));
+    printf("%lf %lf\n",creal(b[i]),cimag(b[i]));
     }
     int X[8] ;
     for(int i=0;i<8;i++){
         X[i]=(ifft(i,b,8,8)/7);
         // printf("%lf %lf \n",creal(X[i]),cimag(X[i]));
     }
-    printf("%f\n",convolution(2,a)) ;
 
 }
