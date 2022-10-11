@@ -15,7 +15,7 @@ print(sampl_freq)
 order = 4   
 
 # Cutoff frquency is 4kHz
-cutoff_freq = 4000.0  
+cutoff_freq = 4000
 
 # Digital Frequency
 Wn = 2 * cutoff_freq / sampl_freq  
@@ -41,4 +41,4 @@ output_signal = np.real(y)
 print(output_signal)
 
 # Write the output signal into .wav file
-sf.write('8_1.wav', output_signal, fs) 
+sf.write('8_1.wav', output_signal, fs)

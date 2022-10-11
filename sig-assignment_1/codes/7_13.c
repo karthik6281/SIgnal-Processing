@@ -69,6 +69,6 @@ int main(){
         X[i]=(ifft(i,b,8,8)/7);
         // printf("%lf %lf \n",creal(X[i]),cimag(X[i]));
     }
-
+}
 
 

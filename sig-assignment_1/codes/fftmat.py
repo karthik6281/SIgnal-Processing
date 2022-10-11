@@ -49,7 +49,9 @@ def F(n):
 # H = F(8)
 
 H = np.matmul(F(8),P(8))
+print(H)
 X = [1,2,3,4,2,1,0,0]
 X = np.array(X)
-print(np.matmul(H,X.T))
+# print(np.matmul(H,X.T))
+
     
