@@ -396,7 +396,7 @@ Use the following command in the terminal to run the code
 \end{lstlisting}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=\columnwidth]{./figs/2_2.png}
+	\includegraphics[width=\columnwidth]{./figs/2_5.png}
 	\caption{}
 \end{figure}
 \item Find $Y^{+}(z)$.
