@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  2 NOV 2022 11:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.7.8)  3 NOV 2022 07:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1049,7 +1049,7 @@ LaTeX Font Info:    Trying to load font information for U+txsyc on input line 7
 (/usr/share/texlive/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-<figs/ckt.jpg, id=22, 1748.5325pt x 642.4pt>
+<figs/ckt.jpg, id=27, 1748.5325pt x 642.4pt>
 File: figs/ckt.jpg Graphic file (type jpg)
 <use figs/ckt.jpg>
 Package pdftex.def Info: figs/ckt.jpg  used on input line 96.
@@ -1081,89 +1081,154 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--131
 
 
  <./figs/ckt.jpg>]
-<figs/2_4.png, id=56, 462.528pt x 346.896pt>
+<figs/2_4.png, id=61, 462.528pt x 346.896pt>
 File: figs/2_4.png Graphic file (type png)
 <use figs/2_4.png>
 Package pdftex.def Info: figs/2_4.png  used on input line 154.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
-<figs/2_5.png, id=59, 462.528pt x 346.896pt>
+<figs/2_5.png, id=64, 462.528pt x 346.896pt>
 File: figs/2_5.png Graphic file (type png)
 <use figs/2_5.png>
 Package pdftex.def Info: figs/2_5.png  used on input line 177.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
-<figs/lap-ckt.jpg, id=61, 2547.5175pt x 1128.215pt>
+<figs/lap-ckt.jpg, id=66, 2547.5175pt x 1128.215pt>
 File: figs/lap-ckt.jpg Graphic file (type jpg)
 <use figs/lap-ckt.jpg>
 Package pdftex.def Info: figs/lap-ckt.jpg  used on input line 185.
 (pdftex.def)             Requested size: 252.0pt x 111.58861pt.
 
 [2 <./figs/2_4.png> <./figs/2_5.png>]
-<figs/2_7.png, id=92, 462.528pt x 346.896pt>
+<figs/2_7.png, id=97, 462.528pt x 346.896pt>
 File: figs/2_7.png Graphic file (type png)
 <use figs/2_7.png>
 Package pdftex.def Info: figs/2_7.png  used on input line 237.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
-<figs/2_8.png, id=93, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+<figs/2_8.png, id=98, 462.528pt x 346.896pt>
 File: figs/2_8.png Graphic file (type png)
 <use figs/2_8.png>
-Package pdftex.def Info: figs/2_8.png  used on input line 244.
+Package pdftex.def Info: figs/2_8.png  used on input line 254.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
- [3 <./figs/lap-ckt.jpg> <./figs/2_7.png> <./figs/2_8.png>]
-Overfull \hbox (22.7127pt too wide) detected at line 268
+[3 <./figs/lap-ckt.jpg> <./figs/2_7.png> <./figs/2_8.png>]
+Overfull \hbox (22.7127pt too wide) detected at line 271
 []
  []
 
 
-Overfull \hbox (18.64063pt too wide) detected at line 280
+Overfull \hbox (18.64063pt too wide) detected at line 283
 []
  []
 
 (./Tikz Circuits/3_2.tex)
-<figs/3_4.png, id=127, 462.528pt x 346.896pt>
+<figs/3_4.png, id=132, 462.528pt x 346.896pt>
 File: figs/3_4.png Graphic file (type png)
 <use figs/3_4.png>
-Package pdftex.def Info: figs/3_4.png  used on input line 337.
+Package pdftex.def Info: figs/3_4.png  used on input line 340.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
-<figs/3_5.png, id=128, 462.528pt x 346.896pt>
+<figs/3_5.png, id=133, 462.528pt x 346.896pt>
 File: figs/3_5.png Graphic file (type png)
 <use figs/3_5.png>
-Package pdftex.def Info: figs/3_5.png  used on input line 343.
+Package pdftex.def Info: figs/3_5.png  used on input line 346.
 (pdftex.def)             Requested size: 252.0pt x 189.00427pt.
  [4]
-Overfull \hbox (3.62071pt too wide) detected at line 381
+Overfull \hbox (3.62071pt too wide) detected at line 384
 []
  []
 
 
-Overfull \hbox (38.99261pt too wide) detected at line 393
+Overfull \hbox (38.99261pt too wide) detected at line 396
 []
  []
 
-[5 <./figs/3_4.png> <./figs/3_5.png>] (./main.aux)
+(./Tikz Circuits/4_1.tex)
+Overfull \hbox (10.43962pt too wide) in paragraph at lines 9--409
+ [][] 
+ []
+
+[5 <./figs/3_4.png> <./figs/3_5.png>]
+<./figs/4_2.png, id=197, 462.528pt x 346.896pt>
+File: ./figs/4_2.png Graphic file (type png)
+<use ./figs/4_2.png>
+Package pdftex.def Info: ./figs/4_2.png  used on input line 445.
+(pdftex.def)             Requested size: 252.0pt x 189.00427pt.
+<./figs/4_3.png, id=200, 462.528pt x 346.896pt>
+File: ./figs/4_3.png Graphic file (type png)
+<use ./figs/4_3.png>
+Package pdftex.def Info: ./figs/4_3.png  used on input line 465.
+(pdftex.def)             Requested size: 252.0pt x 189.00427pt.
+
+Underfull \hbox (badness 3471) in paragraph at lines 469--470
+\OT1/txr/m/n/12 Considering the frequency-domain trans-fer
+ []
+
+[6 <./figs/4_2.png> <./figs/4_3.png>]
+Overfull \hbox (37.9981pt too wide) detected at line 503
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--515
+
+ []
+
+
+Overfull \hbox (19.86214pt too wide) detected at line 525
+ []$[]  \OML/txmi/m/it/12 Y\OT1/txr/m/n/12 (\OML/txmi/m/it/12 z\OT1/txr/m/n/12 
+) []$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--528
+
+ []
+
+[7]
+Overfull \hbox (19.61522pt too wide) detected at line 574
+[]
+ []
+
+
+Overfull \hbox (32.32867pt too wide) detected at line 585
+[]
+ []
+
+<./figs/4_7.png, id=267, 462.528pt x 346.896pt>
+File: ./figs/4_7.png Graphic file (type png)
+<use ./figs/4_7.png>
+Package pdftex.def Info: ./figs/4_7.png  used on input line 626.
+(pdftex.def)             Requested size: 252.0pt x 189.00427pt.
+[8] [9
+
+ <./figs/4_7.png>] (./main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B3E3CCC68C338A65E874C98DFABADF2B;365.
+(rerunfilecheck)             Checksum: D3BF9C80BE444E36F35564B54C366050;501.
  ) 
 Here is how much of TeX's memory you used:
- 39910 strings out of 480247
- 906107 string characters out of 5896152
- 1436594 words of memory out of 5000000
- 57222 multiletter control sequences out of 15000+600000
+ 40147 strings out of 480247
+ 911541 string characters out of 5896152
+ 1435881 words of memory out of 5000000
+ 57372 multiletter control sequences out of 15000+600000
  546875 words of font info for 189 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,14n,103p,460b,1434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 99i,14n,103p,460b,1643s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/txfonts/rtcxr.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
 fonts/rtxsc.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txex.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 383710 bytes).
+are/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmri8a.pfb>
+Output written on main.pdf (9 pages, 460795 bytes).
 PDF statistics:
- 250 PDF objects out of 1000 (max. 8388607)
- 208 compressed objects within 3 object streams
- 111 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 395 PDF objects out of 1000 (max. 8388607)
+ 340 compressed objects within 4 object streams
+ 191 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 
