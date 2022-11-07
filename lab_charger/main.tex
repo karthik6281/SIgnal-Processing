@@ -145,49 +145,83 @@ columns=fullflexible
 \vspace{3cm}
 
 \title{5 V Charger Using a Low Pass Filter}
-\author{Gautam Singh}
+\author{Karthik Ravula}
 \maketitle
 \tableofcontents
 \renewcommand{\thetable}{\theenumi}
 \bigskip
-\begin{abstract}
-    This is a lab report on the realization of a 5 V charger using
-    a low pass analog filter.
-\end{abstract}
-\section{Circuit Description}
-The key components of the charging circuit are:
-\begin{enumerate}
-    \item Step-down transformer (12-0-12)
-    \item Full-wave bridge rectifier
-    \item RC filtering circuit
-    \item 5 V Regulator (7805)
-\end{enumerate}
+\maketitle
 
-The schematic diagram of the entire circuit is shown in Fig. \ref{fig:ckt}.
-\begin{figure}[!htb]
-    \includegraphics[width=\columnwidth]{figs/ckt.jpg}
-    \caption{Schematic diagram of the circuit.}
-    \label{fig:ckt}
+\section{Aim}
+The aim is to build a working mobile charger. The circuit must output \SI{5}{\volt} DC to charge a mobile phone after taking \SI{230}{\volt} AC as input.
+
+\section{Materials Required}
+\begin{itemize}
+	\item Breadboard
+	\item Printed circuit board
+	\item 12-0-12 Tranformer
+	\item 4 diodes
+	\item \SI{100}{\micro\farad} Capacitor
+	\item 7805 Regulator
+	\item Several electrical wires
+	\item Soldering iron and wire
+	\item Multimeter
+	\item Cathode-ray oscilloscope
+	\item Output pin
+	\item USB cable
+	\item Mobile phone
+\end{itemize}
+
+\section{Circuit Diagram}
+Here is a full picture of mobile charger
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=\columnwidth]{./figs/circuit.pdf}
+	\caption{Circuit diagram of a mobile charger}
+	\label{fig-ckt}	
 \end{figure}
+
+\section{Circuit Explanation}
+
 \subsection{Transformer}
-The transformer used is a centre-tapped 12-0-12 step-down 
-transformer. The ground and one of the output wires is used
-in the charging circuit. The output waveform at this stage is
-a 12 V, 50 Hz AC sinusoid.
+	 The transformer steps down the \SI{230}{\volt} AC main supply to \SI{12}{\volt} AC. Note that these are RMS voltages. The peak voltage will thus be $12\sqrt{2} \approx \SI{20}{\volt}$. The transformed voltage is given by
+	\begin{align}
+		v(t) = \SI[parse-numbers=false]{12\sqrt{2}\sin(100\pi t + \phi)}{\volt}
+	\end{align}
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\columnwidth]{./figs/transformer.jpeg}
+		\caption{CRO output after transformer}
+		\label{fig-transformer}	
+	\end{figure}
 
 \subsection{Rectifier}
 The full-wave rectifier is realized using four Si diodes arranged in a
-bridge form as shown in Fig. \ref{fig:ckt}. The output waveform at this
+bridge form as shown in Circuit Diagram. The output waveform at this
 stage is a DC 12 V, 50 Hz rectified sinusoid.
 
+\begin{figure}[!ht]
+	\includegraphics[width=\columnwidth]{figs/rectifier.jpeg}
+	\caption{Output half-wave rectified waveform across diode .}
+	\label{fig:rectifier}
+	
+\end{figure}
+
 \subsection{Filter}
-This is the main component of the charging circuit. The 100 $mu$F
+The 100 $mu$F
 capacitor acts as a first order analog low pass filter. It filters
 around the zero frequency DC component and partially eliminates the
 even harmonics associated with the rectified sinusoid. The output 
 waveform at this stage consists of the constant DC component. Note
 there is no gain and hence we require a regulator to obtain the
 required DC 5V supply.
+
+\begin{figure}[!ht]
+	\includegraphics[width=\columnwidth]{figs/filter.jpeg}
+	\caption{Output DC waveform at filter stage .}
+	\label{fig:filter}
+\end{figure}
 
 \subsection{Regulator}
 The regulator used in this circuit is a 7805 regulator, which outputs
@@ -200,38 +234,19 @@ associated with the rectified waveform is
 where $V_p$ is the peak voltage. Thus, we obtain an almost
 constant supply of 5 V DC to charge a mobile phone.
 
+\begin{figure}[!ht]
+	\includegraphics[width=\columnwidth]{figs/regulator.jpeg}
+	\caption{Output DC waveform at regulator stage.}
+	\label{fig:regulator_dc}
+\end{figure}
+
+\begin{figure}[!ht]
+	\includegraphics[width=\columnwidth]{figs/ripple.jpeg}
+	\caption{Output AC ripple at regulator stage .}
+	\label{fig:regulator_ac}
+\end{figure}
+
 \section{Results}
-The screenshots of the waveforms at each stage are shown ahead.
-
-\begin{figure}[!ht]
-    \includegraphics[width=\columnwidth]{figs/transformer.jpg}
-    \caption{Output AC waveform at transformer stage across T\textsubscript{1}T\textsubscript{0} (18 V peak).}
-    \label{fig:transformer}
-\end{figure}
-
-\begin{figure}[!ht]
-    \includegraphics[width=\columnwidth]{figs/rectifier.jpg}
-    \caption{Output half-wave rectified waveform across diode across AQ (18 V peak).}
-    \label{fig:rectifier}
-\end{figure}
-
-\begin{figure}[!ht]
-    \includegraphics[width=\columnwidth]{figs/filter.jpg}
-    \caption{Output DC waveform at filter stage across IS (18 V).}
-    \label{fig:filter}
-\end{figure}
-
-\begin{figure}[!ht]
-    \includegraphics[width=\columnwidth]{figs/regulator_dc.jpg}
-    \caption{Output DC waveform at regulator stage across OG (5 V).}
-    \label{fig:regulator_dc}
-\end{figure}
-
-\begin{figure}[!ht]
-    \includegraphics[width=\columnwidth]{figs/regulator_ac.jpg}
-    \caption{Output AC ripple at regulator stage across OG (5 mV).}
-    \label{fig:regulator_ac}
-\end{figure}
 
 \begin{enumerate}
     \item Peak voltage after transformer and rectifier stage, 
@@ -250,4 +265,5 @@ The screenshots of the waveforms at each stage are shown ahead.
     \item Use of lab equipment such as solder, oscilloscope, breadboard, PCB, etc.
         to realize a circuit.
 \end{enumerate}
+
 \end{document}

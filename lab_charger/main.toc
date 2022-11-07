@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Aim}{1}{section.1}%
+\contentsline {section}{\numberline {2}Materials Required}{1}{section.2}%
+\contentsline {section}{\numberline {3}Circuit Diagram}{1}{section.3}%
+\contentsline {section}{\numberline {4}Circuit Explanation}{1}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Transformer}{1}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Rectifier}{1}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Filter}{2}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Regulator}{2}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Results}{2}{section.5}%
+\contentsline {section}{\numberline {6}Learning Outcomes}{2}{section.6}%
