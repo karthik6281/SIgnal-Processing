@@ -1,7 +1,6 @@
 import numpy as np
 from scipy import fft, signal
 from matplotlib import pyplot as plt
-import os
 
 def rect_smpl(x): return 1 if (np.abs(x) <= 0.5) else 0
 rect = np.vectorize(rect_smpl, otypes=['double'])
@@ -14,11 +13,12 @@ sig_fft = fft.fftshift(fft.fft(sig))
 sig_fft = np.abs(sig_fft)/np.abs(sig_fft[mid])
 sf = fft.fftshift(fft.fftfreq(sig.size, d=ts))
 plt.plot(sf, sig_fft, '.')
-plt.plot(sf, rect(sf),color="red")
+plt.plot(sf, rect(sf))
 plt.legend(['Simulation', 'Analysis'])
 plt.grid()
 plt.xlim(-2, 2)
 plt.xlabel('f (Hz)')
 plt.ylabel('H(f)')
-plt.savefig('../figs/3_10.png')
+plt.savefig('../figs/3.10.png')
+# plt.savefig('../figs/3.10.eps')
 plt.show()
