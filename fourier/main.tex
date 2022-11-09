@@ -1,5 +1,6 @@
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
 %
+\usepackage{siunitx}
 \usepackage{setspace}
 \usepackage{gensymb}
 \usepackage{xcolor}
@@ -20,6 +21,7 @@
 %\restoresymbol{TXF}{iint}
 %\usepackage{wasysym}
 \usepackage{hyperref}
+\usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{mathrsfs}
 \usepackage{txfonts}
@@ -256,7 +258,7 @@ Let
 \item Plot $x(t)$.\\
 \solution 
 \begin{lstlisting}
-wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/1.1.py
+wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/1.1.py
 
 \end{lstlisting}
 \begin{figure}[!ht]
@@ -357,7 +359,7 @@ Also,
 	using python.\\
 	\solution
 \begin{lstlisting}
-wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/2.3.py 
+wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/2.3.py 
 \end{lstlisting}
 \begin{figure}[!ht]
 	\centering
@@ -444,7 +446,7 @@ b_k=j\brak{c_k-c_{-k}}=0
 using python.\\
 \solution 
   \begin{lstlisting}
-  wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/2.6.py
+  wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/2.6.py
   \end{lstlisting}
     \begin{figure}[!ht]
 \centering
@@ -540,7 +542,7 @@ using python.\\
   X(f)=\sum_{k = -\infty}^{\infty}c_k\delta(f-kf_0)
   \end{align}
   \begin{lstlisting}
-  wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/3.8.py
+  wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/3.8.py
   \end{lstlisting}
   \begin{figure}[!ht]
     \centering
@@ -564,7 +566,7 @@ using python.\\
   =\sinc{t}
   \end{align}
   \begin{lstlisting}
-    wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/3.9.py 
+    wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/3.9.py 
   \end{lstlisting}
   \begin{figure}[!ht]
     \centering
@@ -581,7 +583,7 @@ Using \eqref{eq:rectf}, \eqref{eq:dual} and even property of rect function,
 \sinc{t}\system{F}\rect{t}
 \end{align}
 \begin{lstlisting}
-  wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/3.10.py
+  wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/3.10.py
 \end{lstlisting}
 \begin{figure}[!ht]
   \centering
@@ -641,7 +643,7 @@ h(t)=\frac{2V_0\pi f_0}{A_0}\sinc{4f_0t}
 \item Verify your result using  through convolution.
 \solution 
 \begin{lstlisting}
-  wget https://raw.githubusercontent.com/kumarsuraj151/EE3900/master/charger/codes/4.3.py
+  wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/4.3.py
 \end{lstlisting}
 \begin{figure}[!ht]
   \centering
@@ -652,102 +654,179 @@ h(t)=\frac{2V_0\pi f_0}{A_0}\sinc{4f_0t}
 \end{enumerate}
 \section{Filter Design}
 \begin{enumerate}[label=\thesection.\arabic*
-,ref=\thesection.\theenumi]
-\item Design a Butterworth filter for $H(f)$.\\
-\solution 
-		\begin{align}
-		|H(f)|=\frac{1}{\sqrt{1+\left(\frac{f}{f_c}\right)^{2n}}}
+	,ref=\thesection.\theenumi]
+	\item Design a Butterworth filter for $H(f)$.\\
+	\solution The Butterworth filter has an amplitude response
+	given by
+	\begin{align}
+		\abs{H\brak{f}}^2 = \frac{1}{\brak{1 + \brak{\frac{f}{f_c}}^{2n}}}
 	\end{align}
-		n = Order of the filter\\
-		\begin{align}
-			A=10 log_{10}|H(f)|^2
-		\end{align}
-		\begin{align}
-			A_1=-10 log_{10} \left[1+\left(\frac{f_1}{f_c}\right)^{2n}\right]\\
-A_2=-10 log_{10} \left[1+\left(\frac{f_2}{f_c}\right)^{2n}\right]
-		\end{align}
-		Solving for n,
-		\begin{align}
-			n=\frac{log\left(\frac{10^{-{A_1}/10}-1}{ 10^{-{A_2}/10}-1}\right)}{2 log \left(\frac{f_1}{f_2}\right)}
-		\end{align}
-Assuming values,
-		\begin{align}
-		A_1 = -1 dB\\
-		A_2 = -10 dB\\
-		f_1 = 50 Hz\\
-		f_2 = 100 Hz
-		\end{align}
-		We get,
-		\begin{align}
-			n=2.5596 \approx 3 
-		\end{align}
-		Putting n = 3 in above equations, We get 
-		\begin{align}
-			f_1^{'} = 62.628 Hz \\
-			f_2^{'} = 69.336 Hz \\
-			f_c = \sqrt{f_1^{'} f_2^{'}}=65.897 Hz
-		\end{align}
-\item Design a Chebyschev filter for $H(f)$.
-\solution 
-		\begin{align}
-		|H_n(f)|=\frac{1}{\sqrt{1+\epsilon^{2}c_{n}^2\left(\frac{f}{f_0}\right)}}
+	where $n$ is the order of the filter and $f_c$ is the cutoff
+	frequency. The attenuation at frequency $f$ is given by 
+	\begin{align}
+		A &= -10\log_{10}\abs{H\brak{f}}^2 \\
+		&= -20\log_{10}\abs{H\brak{f}}
+		\label{eq:loss}
 	\end{align}
-where \\$c_n$=nth order Chebyshev polynomial,\\
-		$\epsilon$=ripple factor which is related to passband ripple in $\delta$ as $\sqrt{10^{\delta / 10}-1}$\\
-\begin{align}
-    A_1 = -10\log_{10}\sbrak{1 + \epsilon^2c_n^2\brak{\frac{f}{f_0}}} \\
-    \implies c_n\brak{\frac{f}{f_0}} = \frac{\sqrt{10^{-\frac{A_1}{10}} - 1}}{\epsilon} \\
-    \implies n = \frac{\cosh^{-1}\brak{\frac{\sqrt{10^{-\frac{A_1}{10}} - 1}}{\epsilon}}}
-    {\cosh^{-1}\brak{\frac{f}{f_0}}}
-\end{align}
-Considering 
+	We consider the following design parameters for our
+	lowpass analog Butterworth filter:
+	\begin{enumerate}
+		\item Passband edge, $f_p = 50$ Hz
+		\item Stopband edge, $f_s = 100$ Hz
+		\item Passband attenuation, $A_p = -1$ dB
+		\item Stopband attenuation, $A_s = -20$ dB
+	\end{enumerate}
+	We are required to find a desriable order $n$ and cutoff
+	frequency $f_c$ for the filter. From \eqref{eq:loss},
+	\begin{align}
+		A_p &= -10\log_{10}\sbrak{1 + \brak{\frac{f_p}{f_c}}^{2n}} \\
+		A_s &= -10\log_{10}\sbrak{1 + \brak{\frac{f_s}{f_c}}^{2n}}
+	\end{align}
+	Thus,
+	\begin{align}
+		\brak{\frac{f_p}{f_c}}^{2n} = 10^{-\frac{A_p}{10}} - 1 \label{eq:fc1} \\
+		\brak{\frac{f_s}{f_c}}^{2n} = 10^{-\frac{A_s}{10}} - 1 \label{eq:fc2}
+	\end{align}
+	Therefore, on dividing the above equations and solving for $n$,
+	\begin{align}
+		n = \frac{\log\brak{10^{-\frac{A_s}{10}} - 1} - 
+			\log\brak{10^{-\frac{A_p}{10}} - 1}}{2\brak{\log{f_s} - \log{f_p}}}
+	\end{align}
+	In this case, making appropriate susbstitutions gives $n = 4.29$.
+	Hence, we take $n = 5$. Solving for $f_c$ in \eqref{eq:fc1} and
+	\eqref{eq:fc2},
+	\begin{align}
+		f_{c1} = f_p\sbrak{10^{-\frac{A_p}{10}} - 1}^{-\frac{1}{2n}} = \SI[parse-numbers=false]{57.23}{\hertz} \\
+		f_{c2} = f_s\sbrak{10^{-\frac{A_s}{10}} - 1}^{-\frac{1}{2n}} = \SI[parse-numbers=false]{63.16}{\hertz}
+	\end{align}
+	Hence, we take $f_c = \sqrt{f_{c1}f_{c2}} = \SI[parse-numbers=false]{60}{\hertz}$ approximately.
+	\item Design a Chebyshev filter for $H(f)$.bjjk,bv,kgg
+	\solution The Chebyshev filter has an amplitude response
+	given by
+	\begin{align}
+		\abs{H\brak{f}}^2 = \frac{1}{\brak{1 + \epsilon^2C_n^2\brak{\frac{f}{f_c}}}}
+	\end{align}
+	where 
+	\begin{enumerate}
+		\item $n$ is the order of the filter
+		\item $\epsilon$ is the ripple
+		\item $f_c$ is the cutoff frequency 
+		\item $C_n = \cosh^{-1}\brak{n\cosh{x}}$ denotes 
+		the n\textsuperscript{th} order Chebyshev polynomial,
+		given by
 		\begin{align}
-			f_0 = 65 Hz\\
-			f = 120 Hz \\
-			A_1=10  dB\\
-			\delta=0.2 dB\\
-			\epsilon= 0.217
+			c_n(x) =
+			\begin{cases}
+				\cos\brak{n\cos^{-1}x} & \abs{x} \le 1 \\
+				\cosh\brak{n\cosh^{-1}x} & \textrm{otherwise}
+			\end{cases}
+			\label{eq:chebypol}
 		\end{align}
-On solving we get n=2.71302,$\implies$ n=3.
-\item Design a circuit for your Butterworth filter.
-\solution 
-		%For this 3rd order filter the $C_1=1,C_3=1$ and $L_2=2$, de-normalizing the values $C_i^{'}=\frac{C_i}{\omega_c}$and similarly  $L_i^{'}=\frac{L_i}{\omega_c}$.
-		Using Cauer Topology,
+	\end{enumerate}
+	We are given the following specifications:
+	\begin{enumerate}
+		\item Passband edge (which is equal to 
+		cutoff frequency), $f_p = f_c$
+		\item Stopband edge, $f_s$
+		\item Attenuation at stopband edge, $A_s$
+		\item Peak-to-peak ripple $\delta$ in the passband.
+		It is given in dB and is related to $\epsilon$ as
 		\begin{align}
-			C_{k}=2sin\sbrak{\frac{\brak{2k-1}}{2n}\pi}\\
-			L_{k}=2sin\sbrak{\frac{\brak{2k-1}}{2n}\pi}
+			\delta = 10\log_{10}\brak{1 + \epsilon^2}
+			\label{eq:delta-eps}
 		\end{align}
-		\begin{figure}[!htb]
-    \begin{center}
-    \begin{circuitikz} 
-    \draw
-	(0,0) -- (4,0)--(8,0) 
-	to[C, l^=3.18mF] (8,4)
-	to[L, l=6.36H] (4,4)
-	to[C,l^=3.18F] (4,0)
-	    (4,4)--(0,4);
-    \end{circuitikz}
-    \end{center}
-\caption{}
-\label{fig:3BF}
-\end{figure} 
-\item Design a circuit for your Chebyschev filter.
-\solution the normalised values obtained are$\quad C_1=1.2276 F,L_2=1.1525 H,C_3=1.2276 F$. De-normalizing the values we get:
-		\begin{figure}[!htb]
-    \begin{center}
-    \begin{circuitikz} 
-    \draw
-	(0,0) -- (4,0)--(8,0) 
-	to[C, l^=1.99mF] (8,4)
-	to[L, l=1.876mH] (4,4)
-	to[C,l^=1.99mF] (4,0)
-	    (4,4)--(0,4);
-    \end{circuitikz}
-    \end{center}
-\caption{}
-\label{fig:3CF}
-\end{figure}
-\end{enumerate}
+	\end{enumerate}
+	and we must find a suitable $n$ and $\epsilon$. From
+	\eqref{eq:delta-eps},
+	\begin{align}
+		\epsilon = \sqrt{10^{\frac{\delta}{10}} - 1}
+		\label{eq:epsilon-del}
+	\end{align}
+	At $f_s > f_p = f_c$, using \eqref{eq:chebypol}, $A_s$ is given by
+	\begin{align}
+		A_s = -10\log_{10}\sbrak{1 + \epsilon^2c_n^2\brak{\frac{f_s}{f_p}}} \\
+		\implies c_n\brak{\frac{f_s}{f_p}} = \frac{\sqrt{10^{-\frac{A_s}{10}} - 1}}{\epsilon} \\
+		\implies n = \frac{\cosh^{-1}\brak{\frac{\sqrt{10^{-\frac{A_s}{10}} - 1}}{\epsilon}}}
+		{\cosh^{-1}\brak{\frac{f_s}{f_p}}}
+	\end{align}
+	We consider the following specifications:
+	\begin{enumerate}
+		\item Passband edge/cutoff frequency, $f_p = f_c = \SI[parse-numbers=false]{60}{\hertz}$.
+		\item Stopband edge, $f_s = \SI[parse-numbers=false]{100}{\hertz}$.
+		\item Passband ripple, $\delta = \SI[parse-numbers=false]{0.5}{\dB}$
+		\item Stopband attenuation, $A_s = \SI[parse-numbers=false]{-20}{\dB}$
+	\end{enumerate}
+	$\epsilon = 0.35$ and $n = 3.68$. Hence, we take $n = 4$
+	as the order of the Chebyshev filter.
+	\item Design a circuit for your Butterworth filter.
+	\solution Looking at the table of normalized element values
+	$L_k$, $C_k$, of the Butterworth filter for order 5, and noting
+	that de-normalized values $L_k'$ and $C_k'$ are given by
+	\begin{align}
+		C_k' = \frac{C_k}{\omega_c} \qquad L_k' = \frac{L_k}{\omega_c}
+	\end{align}
+	De-normalizing these values, taking $f_c = 60$ Hz,
+	\begin{align}
+		C_1' = C_5' = \SI{1.64}{\milli\farad} \\
+		L_2' = L_4' = \SI{4.29}{\milli\henry} \\
+		C_3' = \SI{5.31}{\milli\farad}
+	\end{align}
+	The L-C network is shown in Fig. \ref{fig:butter-filter}.
+	\begin{figure}[!ht]
+		\centering
+		\begin{circuitikz} 
+			\draw (0,0) to[short, o-o] (7,0);
+			\draw (0,2) to [short, o-] (1,2) to [L, l=4.29 mH] (3.5,2) to [L, l=4.29 mH] (6,2) to[short, -o] (7,2);
+			\draw (1,0) to[C, l=1.64 mF] (1,2);
+			\draw (3.5,0) to[C, l=5.31 mF] (3.5,2);
+			\draw (6,0) to[C, l=1.64 mF] (6,2);
+		\end{circuitikz}
+		\caption{L-C Butterworth Filter}
+		\label{fig:butter-filter}
+	\end{figure}
+	
+	\begin{figure}
+		\includegraphics[width=\columnwidth]{figs/5.3.png}
+		\caption{Simulation of Chebyshev filter.}
+		\label{fig:sim-butter}
+	\end{figure}
+	Below python code plot the figure \ref{fig:sim-butter}
+	\begin{lstlisting}
+		wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/5.3.py
+	\end{lstlisting} 
+	\item Design a circuit for your Chebyshev filter.
+	
+	\solution Looking at the table of normalized element values
+	of the Chebyshev filter for order 3 and 0.5 dB ripple,
+	and de-nomrmalizing those values, taking $f_c = \SI[parse-numbers=false]{50}{\hertz}$,
+	\begin{align}
+		C_1' = \SI{4.43}{\milli\farad} \\
+		L_2' = \SI{3.16}{\milli\henry} \\
+		C_3' = \SI{6.28}{\milli\farad} \\
+		L_4' = \SI{2.23}{\milli\henry}
+	\end{align}
+	The L-C network is shown in Fig. \ref{fig:cheby-filter}.
+	\begin{figure}[!ht]
+		\centering
+		\begin{circuitikz} 
+			\draw (0,0) to[short, o-o] (7,0); 
+			\draw (1,0) to[C, l=4.43 mF] (1,2);
+			\draw (3.5,0) to[C, l=6.28 mF] (3.5,2);
+			\draw (0,2) to [short, o-] (1,2) to [L, l=3.16 mH] (3.5,2) to[L, l=2.23 mH] (6,2) to[short, -o] (7,2);
+		\end{circuitikz}
+		\caption{L-C Chebyshev Filter}
+		\label{fig:cheby-filter}
+	\end{figure}
 
+	\begin{figure}
+		\includegraphics[width=\columnwidth]{figs/5.4.png}
+		\caption{Simulation of Chebyshev filter.}
+		\label{fig:sim-cheby}
+	\end{figure}
+	Below python code plot the figure \ref{fig:sim-cheby}
+	\begin{lstlisting}
+		wget https://github.com/karthik6281/Signal-Processing/tree/master/fourier/codes/5.4.py
+	\end{lstlisting} 
+\end{enumerate}
 
 \end{document}
